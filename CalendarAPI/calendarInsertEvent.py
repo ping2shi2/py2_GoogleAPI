@@ -49,7 +49,6 @@ def setup_logger():
     sh.setFormatter(formatter)
 
 
-# ログ
 logger = setup_logger()
 
 
@@ -122,12 +121,12 @@ def get_credentials():
 def get_calendar_id(resource_df, values):
     """
     Get Calendar ID
-        values['施設名']とresource_df[name]が同じ行の
+        values['施設']とresource_df[name]が同じ行の
         emailをcalendar_idとして返却
     """
-    # values['施設名']と同じresource_df['姓名']のメールアドレスを取得
+    # values['施設']と同じresource_df['姓名']のメールアドレスを取得
     calendar_id = resource_df.ix[resource_df['name']
-                                 == values['施設名']]['email'].values[0:1][0]
+                                 == values['施設']]['email'].values[0:1][0]
 
     return calendar_id
 
@@ -201,7 +200,7 @@ def main():
         # 予定CSV件数繰り返し
         try:
             logger.info(
-                "EVENT_CSV : LineNo." + i + values['施設名'] + values['開始日時'] +
+                "EVENT_CSV : LineNo." + i + values['施設'] + values['開始日時'] +
                 values['終了日時'] + values['登録者'])
 
             # APIのbody作成
