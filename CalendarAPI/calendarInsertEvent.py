@@ -48,6 +48,7 @@ def setup_logger():
     fh.setFormatter(formatter)
     sh.setFormatter(formatter)
 
+    return logger
 
 logger = setup_logger()
 
